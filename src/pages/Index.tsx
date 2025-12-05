@@ -277,27 +277,7 @@ const Index = () => {
       </header>
 
       <main className="container mx-auto px-4 py-8">
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8">
-          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-4 h-14">
-            <TabsTrigger value="menu" className="text-base">
-              <Icon name="Coffee" size={18} className="mr-2" />
-              Меню
-            </TabsTrigger>
-            <TabsTrigger value="locations" className="text-base">
-              <Icon name="MapPin" size={18} className="mr-2" />
-              Филиалы
-            </TabsTrigger>
-            <TabsTrigger value="offers" className="text-base">
-              <Icon name="Percent" size={18} className="mr-2" />
-              Акции
-            </TabsTrigger>
-            <TabsTrigger value="delivery" className="text-base">
-              <Icon name="Truck" size={18} className="mr-2" />
-              Доставка
-            </TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="menu" className="space-y-12 animate-fade-in">
+        <section className="space-y-12 animate-fade-in">
             <section>
               <h2 className="text-3xl font-bold mb-6">Напитки</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -359,9 +339,9 @@ const Index = () => {
                 ))}
               </div>
             </section>
-          </TabsContent>
+        </section>
 
-          <TabsContent value="locations" className="animate-fade-in">
+        <section className="mt-20">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold mb-8 text-center">Наши кофейни в Москве</h2>
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -396,9 +376,9 @@ const Index = () => {
                 ))}
               </div>
             </div>
-          </TabsContent>
+        </section>
 
-          <TabsContent value="offers" className="animate-fade-in">
+        <section className="mt-20">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold mb-8 text-center">Специальные предложения</h2>
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -424,9 +404,9 @@ const Index = () => {
                 ))}
               </div>
             </div>
-          </TabsContent>
+        </section>
 
-          <TabsContent value="delivery" className="animate-fade-in">
+        <section className="mt-20">
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-12">
                 <div className="inline-block p-6 bg-primary/10 rounded-full mb-6">
@@ -492,8 +472,7 @@ const Index = () => {
                 </CardContent>
               </Card>
             </div>
-          </TabsContent>
-        </Tabs>
+        </section>
       </main>
 
       <footer className="bg-muted/30 mt-20 py-12 border-t">
