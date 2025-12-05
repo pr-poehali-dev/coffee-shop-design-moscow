@@ -175,8 +175,8 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-border">
+    <div className="min-h-screen bg-background pb-24 max-w-md mx-auto">
+      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-border shadow-sm">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -277,7 +277,8 @@ const Index = () => {
       </header>
 
       <main className="container mx-auto px-4 py-8">
-        <section className="space-y-12 animate-fade-in mb-20">
+        {activeTab === 'menu' && (
+        <section className="space-y-12 animate-fade-in">
             <section>
               <h2 className="text-3xl font-bold mb-6">Напитки</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -340,49 +341,10 @@ const Index = () => {
               </div>
             </section>
         </section>
+        )}
 
-        <div className="mt-20 mb-32">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            <button
-              onClick={() => document.getElementById('locations')?.scrollIntoView({ behavior: 'smooth' })}
-              className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-muted/50 hover:bg-muted transition-all hover:scale-105 cursor-pointer"
-            >
-              <div className="p-4 bg-primary/10 rounded-full">
-                <Icon name="MapPin" size={28} className="text-primary" />
-              </div>
-              <span className="font-semibold text-lg">Филиалы</span>
-            </button>
-            <button
-              onClick={() => document.getElementById('offers')?.scrollIntoView({ behavior: 'smooth' })}
-              className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-muted/50 hover:bg-muted transition-all hover:scale-105 cursor-pointer"
-            >
-              <div className="p-4 bg-primary/10 rounded-full">
-                <Icon name="Percent" size={28} className="text-primary" />
-              </div>
-              <span className="font-semibold text-lg">Акции</span>
-            </button>
-            <button
-              onClick={() => document.getElementById('delivery')?.scrollIntoView({ behavior: 'smooth' })}
-              className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-muted/50 hover:bg-muted transition-all hover:scale-105 cursor-pointer"
-            >
-              <div className="p-4 bg-primary/10 rounded-full">
-                <Icon name="Truck" size={28} className="text-primary" />
-              </div>
-              <span className="font-semibold text-lg">Доставка</span>
-            </button>
-            <button
-              onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}
-              className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-muted/50 hover:bg-muted transition-all hover:scale-105 cursor-pointer"
-            >
-              <div className="p-4 bg-primary/10 rounded-full">
-                <Icon name="Phone" size={28} className="text-primary" />
-              </div>
-              <span className="font-semibold text-lg">Контакты</span>
-            </button>
-          </div>
-        </div>
-
-        <section id="locations" className="mt-20 scroll-mt-20">
+        {activeTab === 'locations' && (
+        <section className="animate-fade-in">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold mb-8 text-center">Наши кофейни в Москве</h2>
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -418,8 +380,10 @@ const Index = () => {
               </div>
             </div>
         </section>
+        )}
 
-        <section id="offers" className="mt-20 scroll-mt-20">
+        {activeTab === 'offers' && (
+        <section className="animate-fade-in">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold mb-8 text-center">Специальные предложения</h2>
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -446,8 +410,10 @@ const Index = () => {
               </div>
             </div>
         </section>
+        )}
 
-        <section id="delivery" className="mt-20 scroll-mt-20">
+        {activeTab === 'delivery' && (
+        <section className="animate-fade-in">
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-12">
                 <div className="inline-block p-6 bg-primary/10 rounded-full mb-6">
@@ -514,51 +480,53 @@ const Index = () => {
               </Card>
             </div>
         </section>
+        )}
       </main>
 
-      <footer className="bg-muted/30 mt-20 py-12 border-t">
-        <div className="container mx-auto px-4">
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            <div>
-              <h3 className="font-semibold mb-4">О нас</h3>
-              <p className="text-sm text-muted-foreground">
-                Лучшая кофейня в Москве. Свежие зёрна, профессиональные бариста и уютная атмосфера.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-4">Контакты</h3>
-              <div className="space-y-2 text-sm text-muted-foreground">
-                <p>+7 (495) 123-45-67</p>
-                <p>info@coffeehouse.ru</p>
-              </div>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-4">Время работы</h3>
-              <div className="space-y-2 text-sm text-muted-foreground">
-                <p>Пн-Пт: 8:00 - 22:00</p>
-                <p>Сб-Вс: 9:00 - 23:00</p>
-              </div>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-4">Социальные сети</h3>
-              <div className="flex gap-4">
-                <Button variant="outline" size="icon">
-                  <Icon name="Instagram" size={18} />
-                </Button>
-                <Button variant="outline" size="icon">
-                  <Icon name="Facebook" size={18} />
-                </Button>
-                <Button variant="outline" size="icon">
-                  <Icon name="Twitter" size={18} />
-                </Button>
-              </div>
-            </div>
-          </div>
-          <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
-            <p>© 2024 Coffee House. Все права защищены.</p>
+      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-border shadow-lg z-50">
+        <div className="max-w-md mx-auto">
+          <div className="grid grid-cols-4 gap-1">
+            <button
+              onClick={() => setActiveTab('menu')}
+              className={`flex flex-col items-center gap-1 py-3 transition-colors ${
+                activeTab === 'menu' ? 'text-primary' : 'text-muted-foreground'
+              }`}
+            >
+              <Icon name="Coffee" size={24} />
+              <span className="text-xs font-medium">Меню</span>
+            </button>
+            <button
+              onClick={() => setActiveTab('locations')}
+              className={`flex flex-col items-center gap-1 py-3 transition-colors ${
+                activeTab === 'locations' ? 'text-primary' : 'text-muted-foreground'
+              }`}
+            >
+              <Icon name="MapPin" size={24} />
+              <span className="text-xs font-medium">Филиалы</span>
+            </button>
+            <button
+              onClick={() => setActiveTab('offers')}
+              className={`flex flex-col items-center gap-1 py-3 transition-colors ${
+                activeTab === 'offers' ? 'text-primary' : 'text-muted-foreground'
+              }`}
+            >
+              <Icon name="Percent" size={24} />
+              <span className="text-xs font-medium">Акции</span>
+            </button>
+            <button
+              onClick={() => setActiveTab('delivery')}
+              className={`flex flex-col items-center gap-1 py-3 transition-colors ${
+                activeTab === 'delivery' ? 'text-primary' : 'text-muted-foreground'
+              }`}
+            >
+              <Icon name="Truck" size={24} />
+              <span className="text-xs font-medium">Доставка</span>
+            </button>
           </div>
         </div>
-      </footer>
+      </nav>
+
+
     </div>
   );
 };
