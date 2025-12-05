@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import React from 'react';
+
+const { useState } = React;
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
