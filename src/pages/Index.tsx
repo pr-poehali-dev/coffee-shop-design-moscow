@@ -277,7 +277,7 @@ const Index = () => {
       </header>
 
       <main className="container mx-auto px-4 py-8">
-        <section className="space-y-12 animate-fade-in">
+        <section className="space-y-12 animate-fade-in mb-20">
             <section>
               <h2 className="text-3xl font-bold mb-6">Напитки</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -341,7 +341,48 @@ const Index = () => {
             </section>
         </section>
 
-        <section className="mt-20">
+        <div className="mt-20 mb-32">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+            <button
+              onClick={() => document.getElementById('locations')?.scrollIntoView({ behavior: 'smooth' })}
+              className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-muted/50 hover:bg-muted transition-all hover:scale-105 cursor-pointer"
+            >
+              <div className="p-4 bg-primary/10 rounded-full">
+                <Icon name="MapPin" size={28} className="text-primary" />
+              </div>
+              <span className="font-semibold text-lg">Филиалы</span>
+            </button>
+            <button
+              onClick={() => document.getElementById('offers')?.scrollIntoView({ behavior: 'smooth' })}
+              className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-muted/50 hover:bg-muted transition-all hover:scale-105 cursor-pointer"
+            >
+              <div className="p-4 bg-primary/10 rounded-full">
+                <Icon name="Percent" size={28} className="text-primary" />
+              </div>
+              <span className="font-semibold text-lg">Акции</span>
+            </button>
+            <button
+              onClick={() => document.getElementById('delivery')?.scrollIntoView({ behavior: 'smooth' })}
+              className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-muted/50 hover:bg-muted transition-all hover:scale-105 cursor-pointer"
+            >
+              <div className="p-4 bg-primary/10 rounded-full">
+                <Icon name="Truck" size={28} className="text-primary" />
+              </div>
+              <span className="font-semibold text-lg">Доставка</span>
+            </button>
+            <button
+              onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}
+              className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-muted/50 hover:bg-muted transition-all hover:scale-105 cursor-pointer"
+            >
+              <div className="p-4 bg-primary/10 rounded-full">
+                <Icon name="Phone" size={28} className="text-primary" />
+              </div>
+              <span className="font-semibold text-lg">Контакты</span>
+            </button>
+          </div>
+        </div>
+
+        <section id="locations" className="mt-20 scroll-mt-20">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold mb-8 text-center">Наши кофейни в Москве</h2>
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -378,7 +419,7 @@ const Index = () => {
             </div>
         </section>
 
-        <section className="mt-20">
+        <section id="offers" className="mt-20 scroll-mt-20">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold mb-8 text-center">Специальные предложения</h2>
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -406,7 +447,7 @@ const Index = () => {
             </div>
         </section>
 
-        <section className="mt-20">
+        <section id="delivery" className="mt-20 scroll-mt-20">
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-12">
                 <div className="inline-block p-6 bg-primary/10 rounded-full mb-6">
